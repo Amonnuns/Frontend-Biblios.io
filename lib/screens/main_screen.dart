@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:teste_flutter_desktop/resources/constants.dart';
 import 'package:teste_flutter_desktop/resources/strings.dart';
+import 'package:teste_flutter_desktop/src/auth/presentation/bloc/login_bloc.dart';
+import 'package:teste_flutter_desktop/src/auth/presentation/bloc/login_event.dart';
 import 'package:teste_flutter_desktop/src/auth/presentation/pages/login_page.dart';
+
+import '../src/auth/presentation/bloc/login_state.dart';
 
 class MainScreenPage extends StatelessWidget {
   @override
@@ -52,7 +57,10 @@ class MainScreenPage extends StatelessWidget {
             )),
             Expanded(
               flex: 5,
-              child: LoginPage(),
+              child: BlocProvider<LoginBloc>(
+                  create: (BuildContext context) =>
+                      LoginBloc(LoginLoadingState())..add(LoginPageBuild()),
+                  child: LoginPage()),
             )
           ],
         ),
