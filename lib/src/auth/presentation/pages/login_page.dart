@@ -4,6 +4,7 @@ import 'package:teste_flutter_desktop/resources/constants.dart';
 import 'package:teste_flutter_desktop/resources/strings.dart';
 import 'package:teste_flutter_desktop/src/auth/presentation/bloc/login_bloc.dart';
 import 'package:teste_flutter_desktop/src/auth/presentation/bloc/login_state.dart';
+import 'package:teste_flutter_desktop/src/auth/presentation/pages/sign_up_page.dart';
 
 class LoginPage extends StatelessWidget {
   late LoginBloc bloc;
@@ -84,7 +85,12 @@ class LoginPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => SignUpPage()));
+                              },
                               child: const Text('Cadastre-se')),
                           TextButton(
                             onPressed: () {},
@@ -108,3 +114,5 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
+
+void _telaCadastro() {}

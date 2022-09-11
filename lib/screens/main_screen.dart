@@ -5,6 +5,7 @@ import 'package:teste_flutter_desktop/resources/strings.dart';
 import 'package:teste_flutter_desktop/src/auth/presentation/bloc/login_bloc.dart';
 import 'package:teste_flutter_desktop/src/auth/presentation/bloc/login_event.dart';
 import 'package:teste_flutter_desktop/src/auth/presentation/pages/login_page.dart';
+import 'package:teste_flutter_desktop/src/auth/presentation/pages/sign_up_page.dart';
 
 import '../src/auth/presentation/bloc/login_state.dart';
 
@@ -59,7 +60,7 @@ class MainScreenPage extends StatelessWidget {
               flex: 5,
               child: BlocProvider<LoginBloc>(
                   create: (BuildContext context) =>
-                      LoginBloc(LoginLoadingState())..add(LoginPageBuild()),
+                      LoginBloc()..add(LoginPageBuild()),
                   child: LoginPage()),
             )
           ],
